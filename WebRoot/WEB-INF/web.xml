@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>DWRDemo</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- <servlet>
+		<display-name>DWR Servlet</display-name>
+		<servlet-name>dwr-invoker</servlet-name>
+		<servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		声明该servlet类加载的顺序
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dwr-invoker</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping> -->
+	
+	<!-- DWR服务器推技术 -->
+    <servlet> 
+        <servlet-name>dwr-invoker</servlet-name> 
+        <servlet-class> 
+            org.directwebremoting.servlet.DwrServlet 
+        </servlet-class> 
+        <init-param> 
+            <description>调试DWR,发布系统时应将其设为false</description> 
+            <param-name>debug</param-name> 
+            <param-value>true</param-value> 
+        </init-param> 
+        <init-param> 
+            <description>使用服务器推技术(反转AJAX)</description> 
+            <param-name>activeReverseAjaxEnabled</param-name> 
+            <param-value>true</param-value> 
+        </init-param> 
+        <init-param> 
+            <param-name> 
+               initApplicationScopeCreatorsAtStartup 
+            </param-name> 
+            <param-value>true</param-value> 
+        </init-param>
+        <init-param> 
+            <param-name>maxWaitAfterWrite</param-name> 
+            <param-value>100</param-value> 
+        </init-param> 
+        <load-on-startup>4</load-on-startup> 
+    </servlet> 
+    <servlet-mapping> 
+        <servlet-name>dwr-invoker</servlet-name> 
+        <url-pattern>/dwr/*</url-pattern> 
+    </servlet-mapping> 
+</web-app>

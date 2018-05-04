@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 3.0//EN"
+    "http://getahead.org/dwr/dwr30.dtd">
+    
+<dwr>
+	<allow>
+		<!-- creator="new"指java的创建方法 ，在与spring融合后，这里配置为creator="spring"-->
+		<!-- javascript="dwrTest"指在javascript中调用java方法的变量名 -->
+		<!-- scope属性与servlet规范定义的scope属性基本相同，有"application", "session", "request", "page"（默认），还有一个"script" -->
+		<create creator="new" javascript="dwrTest" scope="application">
+			<param name="class" value="com.jason.test.DwrTest"></param>
+			<!-- include指可使用的方法，另外还有exclude不可使用的方法 -->
+				<include method="getHello"/>
+				<include method="getStudent"/>
+				<exclude/>
+		</create>
+		<create creator="new" javascript="DemoTest">
+			<param name="class" value="com.jason.push.DemoTest"></param>
+		</create>
+	</allow>
+</dwr>
